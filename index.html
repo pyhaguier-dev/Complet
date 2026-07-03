@@ -123,6 +123,22 @@
         }
     }
 
+
+
+function enterFullscreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen()
+            .catch(err => {
+                console.log("Fullscreen error:", err);
+            });
+    }
+}
+
+// First tap/click enters fullscreen
+document.addEventListener("click", enterFullscreen, { once: true });
+document.addEventListener("touchstart", enterFullscreen, { once: true });
+
+
     function next() {
         stopTimer();
 
